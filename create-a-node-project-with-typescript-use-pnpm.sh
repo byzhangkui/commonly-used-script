@@ -10,7 +10,7 @@ cd $1
 npm init -y
 
 # Step 3: Install TypeScript
-pnpm install --save-dev typescript ts-node
+pnpm install --save-dev typescript ts-node @types/node
 
 # Step 4: Create tsconfig.json
 npx tsc --init --rootDir src --outDir dist --esModuleInterop --lib esnext,dom --target esnext
@@ -22,7 +22,7 @@ mkdir src dist
 echo "console.log('Hello, TypeScript!');" > src/index.ts
 
 # Step 7: Add start script in package.json
-npx json -I -f package.json -e 'this.scripts["start"] = "ts-node dist/index.js";this.scripts["build"] = "tsc"'
+npx json -I -f package.json -e 'this.scripts["start"] = "ts-node src/index.ts";this.scripts["build"] = "tsc"'
 
 echo "Node.js project with TypeScript support has been created."
 
